@@ -21,9 +21,11 @@
 .topbarIconContainer{
     position:relative;
     cursor:pointer;
-    margin-right: 10px;
+    margin-right: 20px;
     color: #555;
+    padding: 3px;
 }
+
 .topRight{
     display: flex;
     align-self: center;
@@ -39,6 +41,8 @@
     display:flex;
     justify-content: center;
     font-size: 10px;
-
-
+}
+img {
+    height:70px;
+    margin-left: 20px;
 }
