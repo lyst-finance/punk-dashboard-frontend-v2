@@ -16,33 +16,42 @@ const useStyles = makeStyles({
     },
   });
 
-const createData = (punkID, priceETH, type, attributeCount, block) => {
-    return { punkID, priceETH, type, attributeCount, block };
+const createData = (punkID, priceUSD, priceETH, type, attributeCount, block) => {
+    return { punkID, priceUSD, priceETH, type, attributeCount, block };
 }
 
-const Feed = ({ feed }) => {
-    let rows = [];
+const Feed = ({ feed, usd }) => {
 
+    console.log(usd);
+    
+    let rows = [];
     const classes = useStyles();
 
+    useEffect(() => {
+        
+        populateTable(feed)
+    },[])
+
     const populateTable = (transactions) => {
+
+        //filter out zeros here with a filter. then map that array
+
         rows = transactions.map(event => {
+            let priceInUSD = event.priceInETH * usd;
+            priceInUSD = priceInUSD.toFixed(2);
+            priceInUSD = priceInUSD.toString();
+            priceInUSD = '$ '+ priceInUSD; 
             return createData(
-                event.punkIndex, 
+                event.punkIndex,
+                priceInUSD, 
                 event.priceInETH, 
                 event.type, 
                 event.count,
                 event.block)
-        })  
+        });  
     }
 
-    useEffect(() => {
-        populateTable(feed)
-    },[])
-
     populateTable(feed);
-    
-    console.log('feed', feed, 'rows', rows);
 
     return (
         <TableContainer component={Paper}>
@@ -50,6 +59,7 @@ const Feed = ({ feed }) => {
           <TableHead>
             <TableRow>
               <TableCell>punk ID</TableCell>
+              <TableCell align="right">price (USD)</TableCell>
               <TableCell align="right">price (ETH)</TableCell>
               <TableCell align="right">type&nbsp;</TableCell>
               <TableCell align="right">attribute count&nbsp;</TableCell>
@@ -62,6 +72,7 @@ const Feed = ({ feed }) => {
                 <TableCell component="th" scope="row">
                   {row.punkID}
                 </TableCell>
+                <TableCell align="right">{row.priceUSD}</TableCell>
                 <TableCell align="right">{row.priceETH}</TableCell>
                 <TableCell align="right">{row.type}</TableCell>
                 <TableCell align="right">{row.attributeCount}</TableCell>
