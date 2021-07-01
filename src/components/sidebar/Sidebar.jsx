@@ -42,7 +42,7 @@ export default function Sidebar() {
                     </ul>
 
                 </div>
-
+            <div>calculator</div>
             </divs>
 
             
