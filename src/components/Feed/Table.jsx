@@ -12,8 +12,7 @@ import Paper from '@material-ui/core/Paper';
 
 const useStyles = makeStyles({
     table: {
-      minWidth: 650,
-      
+      minWidth: 650,  
     },
   });
 
@@ -23,19 +22,15 @@ const createData = (punkID, priceUSD, priceETH, type, attributeCount, block) => 
 
 const Feed = ({ feed, usd }) => {
 
-    console.log(usd);
     
     let rows = [];
     const classes = useStyles();
 
-    useEffect(() => {
-        
+    useEffect(() => {    
         populateTable(feed)
     },[])
 
     const populateTable = (transactions) => {
-
-        //filter out zeros here with a filter. then map that array
 
         const filtered = transactions.filter(transaction => transaction.priceInETH != 0)
 

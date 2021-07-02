@@ -15,6 +15,7 @@
 
 .headings{
     display:flex;
+    
     margin: 10px;
     padding:20px;
     -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
