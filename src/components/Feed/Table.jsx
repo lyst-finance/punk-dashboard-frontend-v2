@@ -13,6 +13,7 @@ import Paper from '@material-ui/core/Paper';
 const useStyles = makeStyles({
     table: {
       minWidth: 650,
+      
     },
   });
 
@@ -36,7 +37,9 @@ const Feed = ({ feed, usd }) => {
 
         //filter out zeros here with a filter. then map that array
 
-        rows = transactions.map(event => {
+        const filtered = transactions.filter(transaction => transaction.priceInETH != 0)
+
+        rows = filtered.map(event => {
             let priceInUSD = event.priceInETH * usd;
             priceInUSD = priceInUSD.toFixed(2);
             priceInUSD = priceInUSD.toString();

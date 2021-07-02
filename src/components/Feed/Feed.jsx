@@ -5,10 +5,22 @@ import cryptoPunksMarket_ABI from '../../abis/cryptoPunksMarket_ABI.json'
 import punkAttributes from '../../punk-attributes.json'
 import Table from './Table'
 import TableContainer from '@material-ui/core/TableContainer';
+import Box from '@material-ui/core/Box'
 import Paper from '@material-ui/core/Paper';
 import { useReducer } from 'react';
 
 const address = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB";
+
+const customProps = {
+    display: 'flex',
+    flexGrow: 0,
+    boxShadow : 20,
+    m: 1,
+    borderRadius: 15,
+    style: { height: '395px', borderRadius: '10', width:'800px',
+paddingLeft: '10px', paddingTop: '10px', paddingRight: '10px',
+paddingBottom: '10px'}
+  }
 
 const createData = (punkID, priceETH, type, attributeCount, block) => {
     return { punkID, priceETH, type, attributeCount, block };
@@ -30,7 +42,7 @@ const Feed = ({ usd }) => {
         const now = await provider.getBlock();
 
         let endBlock = now.number;
-        let startBlock = endBlock - 10000;
+        let startBlock = endBlock - 100000;
 
         const filter =  contract.filters.PunkBought();
 
@@ -41,7 +53,8 @@ const Feed = ({ usd }) => {
             let value = event.args.value;
             value = ethers.utils.formatUnits(value._hex);
             punkIndex = ethers.utils.formatUnits(punkIndex._hex).replace(/\./g, '');
-            value = parseInt(value);
+            value = parseFloat(value).toFixed(2)
+            console.log(value)
             punkIndex = parseInt(punkIndex, 10);
             
             return {
@@ -72,7 +85,7 @@ const Feed = ({ usd }) => {
 
     return (
         <div className="feed">
-        {feed ? <Table  feed={feed} usd={usd}/> : <div> loading </div>}
+        {feed ? <Box {...customProps} ><Table  feed={feed} usd={usd}/></Box> : <div> loading </div>}
         </div>
     )
 }
