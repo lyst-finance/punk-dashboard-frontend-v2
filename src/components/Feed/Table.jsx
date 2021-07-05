@@ -1,3 +1,5 @@
+/* eslint-disable */ 
+
 import { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -31,7 +33,7 @@ const Feed = ({ feed, usd }) => {
 
     const populateTable = (transactions) => {
 
-        const filtered = transactions.filter(transaction => transaction.priceInETH !== 0)
+        const filtered = transactions.filter(transaction => transaction.priceInETH != 0)
 
         rows = filtered.map(event => {
             let priceInUSD = event.priceInETH * usd;
