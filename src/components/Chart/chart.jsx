@@ -1,10 +1,9 @@
 import './chart.css'
 import chartData from '../../chart-data.json'
-import { Area, AreaChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { Area, AreaChart, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 
 const chart = ({title,data, dataKey, grid}) => {
-
 
     return (
         <div className = 'chart'>
@@ -13,11 +12,11 @@ const chart = ({title,data, dataKey, grid}) => {
                 <AreaChart data={chartData}>
                     <defs>  
                         <linearGradient id="color" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#B446FC" stopOpacity={0.7}/>
-                            <stop offset="75%" stopColor="#B446FC" stopOpacity={0.1}/>
+                            <stop offset="0%" stopColor="#29abe3" stopOpacity={0.7}/>
+                            <stop offset="75%" stopColor="#29abe3" stopOpacity={0.1}/>
                         </linearGradient>
                     </defs>
-                    <Area dataKey="usd" stroke="#B446FC" fill="url(#color)"/>
+                    <Area dataKey="usd" stroke="#29abe3" fill="url(#color)"/>
                     <XAxis dataKey="date"
                         axisLine={false}
                         tickLine={false}

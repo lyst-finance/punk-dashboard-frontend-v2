@@ -1,40 +1,41 @@
-import { AddressZero } from '@ethersproject/constants';
 import { ethers } from 'ethers'
 import { useState, useEffect } from 'react';
 import cryptoPunksMarket_ABI from '../../abis/cryptoPunksMarket_ABI.json'
 import punkAttributes from '../../punk-attributes.json'
+import Calculator from './Calculator'
 import Table from './Table'
-import TableContainer from '@material-ui/core/TableContainer';
 import Box from '@material-ui/core/Box'
-import Paper from '@material-ui/core/Paper';
-import { useReducer } from 'react';
+import Grid from '@material-ui/core/Grid'
+import CircularProgress from '@material-ui/core/CircularProgress'
 
 const address = "0xb47e3cd837dDF8e4c57F05d70Ab865de6e193BBB";
 
 const customProps = {
     display: 'flex',
-    flexGrow: 0,
+    flexGrow: 1,
     boxShadow : 20,
     m: 1,
     borderRadius: 15,
-    style: { height: '395px', borderRadius: '10', width:'800px',
+    style: { height: '395px', borderRadius: '10', width: '100%',
 paddingLeft: '10px', paddingTop: '10px', paddingRight: '10px',
 paddingBottom: '10px'}
   }
 
-const createData = (punkID, priceETH, type, attributeCount, block) => {
-    return { punkID, priceETH, type, attributeCount, block };
-}
-
 const Feed = ({ usd }) => {
 
     const [feed, setFeed] = useState();
+    const [quote, setQuote] = useState();
+    const [type, setType] = useState();
+    const [attrCount, setAttrCount] = useState();
+    const [message, setMessage] = useState(false);
+
+    console.log(quote, type)
 
     useEffect(() => { 
         getRecentTransactions();
-    },[])
+        // eslint-disable-next-line
+    },[]);
 
-    
     const getRecentTransactions = async () => {
         
         const provider = new ethers.providers.JsonRpcProvider("https://eth-mainnet.alchemyapi.io/v2/gRR0KK-rRxTfSUdGd_g11RvpjrgCRN8a");
@@ -54,7 +55,6 @@ const Feed = ({ usd }) => {
             value = ethers.utils.formatUnits(value._hex);
             punkIndex = ethers.utils.formatUnits(punkIndex._hex).replace(/\./g, '');
             value = parseFloat(value).toFixed(2)
-            console.log(value)
             punkIndex = parseInt(punkIndex, 10);
             
             return {
@@ -66,15 +66,13 @@ const Feed = ({ usd }) => {
         });
  
         const mappings = mapAttributes(data);
-        setFeed(mappings); 
-        console.log('FEED:', feed);    
+        setFeed(mappings);   
     }
 
-    const mapAttributes = (array) => {
-        
+    const mapAttributes = (array) => {   
         array.forEach(event => {
             punkAttributes.forEach(punk => {
-                if(punk.id == event.punkIndex){
+                if(punk.id === event.punkIndex){
                     event.type = punk.type;
                     event.count = punk.count;
                 }
@@ -85,7 +83,24 @@ const Feed = ({ usd }) => {
 
     return (
         <div className="feed">
-        {feed ? <Box {...customProps} ><Table  feed={feed} usd={usd}/></Box> : <div> loading </div>}
+            <Grid container>
+                <Grid item xs={3}>
+                    <Calculator 
+                        quote={quote} 
+                        setQuote={setQuote}
+                        type={type}
+                        setType={setType} 
+                        attrCount={attrCount}
+                        setAttrCount={setAttrCount} 
+                        message={message}
+                        setMessage={setMessage}  
+                        />
+                </Grid>
+                <Grid item xs={8}>
+                {feed ? <Box {...customProps} ><Table feed={feed} usd={usd}/></Box> 
+                : <CircularProgress />}
+                </Grid>
+            </Grid>
         </div>
     )
 }

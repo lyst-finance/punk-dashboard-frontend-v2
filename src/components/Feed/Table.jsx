@@ -1,5 +1,4 @@
-import { AddressZero } from '@ethersproject/constants';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -21,18 +20,18 @@ const createData = (punkID, priceUSD, priceETH, type, attributeCount, block) => 
 }
 
 const Feed = ({ feed, usd }) => {
-
     
     let rows = [];
     const classes = useStyles();
 
-    useEffect(() => {    
+    useEffect(() => {   
         populateTable(feed)
+        // eslint-disable-next-line
     },[])
 
     const populateTable = (transactions) => {
 
-        const filtered = transactions.filter(transaction => transaction.priceInETH != 0)
+        const filtered = transactions.filter(transaction => transaction.priceInETH !== 0)
 
         rows = filtered.map(event => {
             let priceInUSD = event.priceInETH * usd;

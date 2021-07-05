@@ -5,7 +5,7 @@
     padding:20px;
     -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
     box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24);
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: white;
 }
 .text{
@@ -15,11 +15,11 @@
 
 .headings{
     display:flex;
-    
+    color:#4e2b67;
     margin: 10px;
     padding:20px;
     -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
     box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24);
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: white;
 }

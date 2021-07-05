@@ -4,7 +4,6 @@ import axios from 'axios'
 import'./home.css'
 import Chart from '../../components/Chart/chart'
 import Feed from '../../components/Feed/Feed'
-import {testData} from '../../testData';
 import Welcome from '../../components/Welcome/welcome'
 
 export default function Home() {
