@@ -2,17 +2,28 @@ import React from 'react'
 import'./learnMore.css'
 import { ScatterChart, XAxis, Scatter, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import data from '../../scatter-data.json'
+import Box from '@material-ui/core/Box'
+import Grid from '@material-ui/core/Grid'
 
 let scatterData = data.reverse();
 
-console.log(data)
 
 const learnMore = () => {
     return (
     <div className='learnMore'>
-        <ResponsiveContainer width='100%' aspect={4 / 1}>
+    <Grid container direction="column" width={"300"}> 
+        <div className="textbox">
+        <Grid container>
+        <Grid item xs={12} style={{paddingLeft:400, paddingBottom:10 }}>
+        <h2>cPunk Pricing Model</h2> 
+        </Grid>
+            <div>Welcome to the Catalyst cPunk index, we have implemented hedonic regressions on CryptoPunk transactional history to derive the value of the market. Hedonic regressions are commonly applied in real estate, retail and economics. Hedonic pricing is a revealed-preference method to determine the relative importance of the variables which affect the price of a good or service. This pricing model is particularly useful for pricing CryptoPunks and the broader NFT market since they have specific attributes that give them value and all transactions are recorded on the blockchain.</div>
+        </Grid> 
+        </div>  
+        <Box height={30}>
+        <ResponsiveContainer width='90%' aspect={4 / 1}>
             <div className="scatter-chart">
-                <ScatterChart width={1100} height={300}
+                <ScatterChart width={910} height={300}
                     margin={{ top: 20, right: 20, bottom: 10, left: 30 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="time" />
@@ -26,8 +37,10 @@ const learnMore = () => {
                     <Legend />
                     <Scatter dataKey="usd" name="punk bought" data={scatterData} fill="#8884d8" />
                 </ScatterChart>
-            </div> 
-        </ResponsiveContainer>
+                </div> 
+            </ResponsiveContainer>    
+        </Box>
+        </Grid> 
     </div>
     )
 }

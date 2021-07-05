@@ -1,6 +1,7 @@
 .learnMore{
     flex: 5;
-    width:100%;
+    width: 500px;
+    height: 800px;
     display:flex;
     justify-content: space-between;
     margin-top: 20px;
@@ -8,10 +9,21 @@
     border-radius: 10px;
 }
 
+.textbox{
+    display:flex;   
+    margin: 10px;
+    padding:20px;
+    -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
+    box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24);
+    border-radius: 10px;
+    background-color: white;
+}
+
 .scatter-chart{
     display:flex;   
     margin: 10px;
     padding:20px;
+    width: 100%;
     -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
     box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24);
     border-radius: 10px;
