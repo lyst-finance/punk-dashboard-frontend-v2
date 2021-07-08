@@ -1,7 +1,5 @@
 import React from 'react'
 import'./learnMore.css'
-import { ScatterChart, XAxis, Scatter, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import data from '../../scatter-data.json'
 import Box from '@material-ui/core/Box'
 import Grid from '@material-ui/core/Grid'
 

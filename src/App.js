@@ -2,10 +2,8 @@ import Sidebar from './components/sidebar/Sidebar.jsx';
 import Home from './pages/home/home.jsx';
 import Team from './pages/team/team';
 import LearnMore from './pages/learnMore/learnMore.jsx'
-import Borrow from './pages/Borrow/borrow.jsx'
 import Topbar from './components/topbar/Topbar'
 import Farm from './pages/farm/farm'
-import Calc from './pages/calc/calc'
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import './app.css'
 import Grid from '@material-ui/core/Grid';
