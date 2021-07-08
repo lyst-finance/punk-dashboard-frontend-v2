@@ -67,6 +67,18 @@ export default function Team() {
                     </div>
                     </Paper>
                 </Grid>
+                <Grid item>
+                    <Paper style={{height:300,width:300,borderRadius: 10}}>
+                    <div className='picture'>
+                    <img src="/images/Anna.png" className="photo" alt = '' />
+                    </div>
+                    <div className="info">
+                    <h2>Ann Kona</h2>
+
+                    <h3>Graphic Designer</h3> 
+                    </div>
+                    </Paper>
+                </Grid>
 
             </Grid>  
             </div>    

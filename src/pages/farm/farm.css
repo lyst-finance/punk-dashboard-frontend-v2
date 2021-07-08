@@ -1,0 +1,11 @@
+.background{
+    text-align: center;
+    padding-top: 125px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.icons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

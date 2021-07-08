@@ -84,7 +84,7 @@ const Feed = ({ usd }) => {
     return (
         <div className="feed">
             <Grid container>
-                <Grid item xs={3}>
+                <Grid item xs={12} md={3}>
                     <Calculator 
                         quote={quote} 
                         setQuote={setQuote}
@@ -96,7 +96,7 @@ const Feed = ({ usd }) => {
                         setMessage={setMessage}  
                         />
                 </Grid>
-                <Grid item xs={8}>
+                <Grid item xs={12} md={8}>
                 {feed ? <Box {...customProps} ><Table feed={feed} usd={usd}/></Box> 
                 : <CircularProgress />}
                 </Grid>

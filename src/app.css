@@ -1,8 +1,14 @@
 .container{
     display: flex;
-    background-color: #502b66;
+    
 }
-.others{
-    flex:4;
+.pages{
+    background-color: white;
 }
+@media(max-width:500px){
 
+    .topbar{
+
+        display:none;
+    }
+}

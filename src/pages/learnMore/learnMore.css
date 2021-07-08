@@ -1,11 +1,10 @@
 .learnMore{
     flex: 5;
-    width: 500px;
-    height: 800px;
+
     display:flex;
     justify-content: space-between;
     margin-top: 20px;
-    background-color: rgb(241, 231, 248);
+   
     border-radius: 10px;
 }
 

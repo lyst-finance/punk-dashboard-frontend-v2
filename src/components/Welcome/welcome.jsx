@@ -4,21 +4,21 @@ import Grid from '@material-ui/core/Grid'
 
 export default function Welcome() {
     return (
-            
-            <Grid container>
-                <Grid item xs={4} container={"true"} justify={"center"}>
+            <div className="containerTest">
+
+                
                 <div className="headings">
-                    <Grid container>
+                    <Grid container >
                         <Grid item xs ={12}>
                         <h1>Welcome!</h1>
                         </Grid>
                         <Grid item xs ={12}>
-                        <p>cPunk is a price feed derived using hedonic linear regressions and <br></br>real-time on-chain data</p>
+                        <p>cPunk is a synthetic derivative for CryptoPunks. It’s based on a price feed derived using hedonic linear regressions and real-time on-chain data</p>
                         </Grid>
                     </Grid>
                 </div>
-                </Grid>
-                <Grid item xs={4} container={"true"} justify={"center"}> 
+                
+                
                 <div className="headings"> 
                     <Grid container> 
                         <Grid item xs ={12}>
@@ -29,8 +29,7 @@ export default function Welcome() {
                         </Grid> 
                     </Grid> 
                     </div>                                  
-                </Grid>
-                <Grid item xs={4} container={"true"} justify={"center"}>
+                
                     <div className="headings">
                     <Grid container>
                         <Grid item xs ={12} >
@@ -41,8 +40,9 @@ export default function Welcome() {
                         </Grid> 
                     </Grid>
                     </div>
-                </Grid>
-            </Grid>      
+               
+           
+            </div>    
             
     )
 }

@@ -1,13 +1,4 @@
-.outline{
-    display:flex;
-    align-items: center;
-    margin: 10px;
-    padding:20px;
-    -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
-    box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24);
-    border-radius: 20px;
-    background-color: white;
-}
+
 .text{
     margin-top: 60px;
     text-align: left;
@@ -15,11 +6,23 @@
 
 .headings{
     display:flex;
-    color:#4e2b67;
+    color:black;
     margin: 10px;
     padding:20px;
     -webkit-box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24); 
     box-shadow: 7px 5px 15px 5px rgba(0,0,0,0.24);
     border-radius: 20px;
     background-color: white;
+}
+
+.containerTest{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+}
+
+@media(max-width:1100px){
+    
+    .containerTest{
+        grid-template-columns: 100%;
+    }
 }

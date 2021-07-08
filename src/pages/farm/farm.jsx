@@ -1,6 +1,6 @@
 import React from 'react'
-import'./topbar.css'
-
+import'./farm.css'
+/*import Grid from '@material-ui/core/Grid';*/
 import GitHubIcon from '@material-ui/icons/GitHub';
 import TwitterIcon from '@material-ui/icons/Twitter';
 import TelegramIcon from '@material-ui/icons/Telegram';
@@ -8,19 +8,21 @@ import {IconContext} from "react-icons"
 import {SiDiscord} from "react-icons/si"
 import {AiOutlineMedium} from 'react-icons/ai'
 
-
-
-export default function Topbar(){
-    return(
-<div className ='topbar'>
-    <div className='topbarWrapper'>
-        
-            <a href='https://t.me/catalyst_fi'>
+export default function Farm() {
+    return (
+        <div>
+            <div className="background">
+                <h1>Coming Soon!</h1>
+                <p>We're hard at work developing these functions check out the links below to learn more about us</p>
+            
+            <div className="icons">
+                <a href='https://t.me/catalyst_fi'>
                 <div className="topbarIconContainer">
                     <TelegramIcon />
                     <span className="topIconBadge"></span>
                 </div>
-            </a>
+
+                </a>
           
             <a href='https://twitter.com/catalyst_fi'>
             <div className="topbarIconContainer">
@@ -52,10 +54,9 @@ export default function Topbar(){
                             </a>
                             </IconContext.Provider>
             </div>
- 
+            </div>
 
-    </div>
-</div>
-
+            </div>
+        </div>
     )
 }

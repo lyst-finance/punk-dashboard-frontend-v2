@@ -8,7 +8,7 @@ import appraisals from '../../punk-appraisals.json'
 const customProps = {
     display: 'flex',
     flexGrow: 0,
-    bgcolor: '#f1e7f8',
+    bgcolor: 'white',
     borderRadius: '20px',
     boxShadow : 8,
     m: 1,

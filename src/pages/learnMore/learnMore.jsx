@@ -11,15 +11,16 @@ let scatterData = data.reverse();
 const learnMore = () => {
     return (
     <div className='learnMore'>
-    <Grid container direction="column" width={"300"}> 
+    <Grid container direction="column" > 
         <div className="textbox">
         <Grid container>
-        <Grid item xs={12} style={{paddingLeft:400, paddingBottom:10 }}>
+        <Grid item xs={12}>
         <h2>cPunk Pricing Model</h2> 
         </Grid>
             <div>Welcome to the Catalyst cPunk index, we have implemented hedonic regressions on CryptoPunk transactional history to derive the value of the market. Hedonic regressions are commonly applied in real estate, retail and economics. Hedonic pricing is a revealed-preference method to determine the relative importance of the variables which affect the price of a good or service. This pricing model is particularly useful for pricing CryptoPunks and the broader NFT market since they have specific attributes that give them value and all transactions are recorded on the blockchain.</div>
         </Grid> 
-        </div>  
+        </div>
+ {/*         
         <Box height={30}>
         <ResponsiveContainer width='90%' aspect={4 / 1}>
             <div className="scatter-chart">
@@ -40,6 +41,7 @@ const learnMore = () => {
                 </div> 
             </ResponsiveContainer>    
         </Box>
+ */}
         </Grid> 
     </div>
     )
